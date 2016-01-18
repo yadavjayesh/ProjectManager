@@ -1,0 +1,30 @@
+
+<md-content layout="row" flex>
+    <div layout="column" flex="33"></div>
+        <div layout="column" flex="33">
+            <form>
+                <hgroup>
+                    <h1>
+                        Please Login
+                        <span>{{$scope.message}}</span>
+                    </h1>
+
+                </hgroup>
+
+                    <md-input-container>
+                        <label>Email</label>
+                        <input type="email" ng-model="user.email" ng-required="true"/>
+                    </md-input-container> 
+                    <md-input-container>
+                        <label>Password</label>
+                        <input type="password" ng-model="user.password" ng-required="true"/>
+                    </md-input-container>
+                    <br>
+                    <md-button class="md-raised md-primary" ng-click="login()">Login!!!</md-button>
+
+
+            </form>
+        </div>
+    <div layout="column" flex="33"></div>
+</md-content>        
+

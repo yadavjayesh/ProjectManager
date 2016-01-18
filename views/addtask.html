@@ -1,8 +1,8 @@
-<md-dialog aria-label="Task Form" flex="20"> 
+<md-dialog aria-label="Task Form" style="min-height: 350px;" flex="25"> 
     
-    <md-dialog-content flex>
+    <md-dialog-content>
         <form name="taskForm" flex>
-            <div layout-gt-sm="row" flex>
+            <div layout-gt-sm="row">
                 <md-input-container>
                     <label>Task Name</label>
                     <input type="text" ng-model="task.name"/>
@@ -13,12 +13,13 @@
                 </md-input-container>
             </div>
             
-            <div layout="column" flex>
-                <div flex="50">
+            <div layout="vertically" flex>
+                <div flex="40">
                     <h6>Start Date</h6>
-                <md-datepicker ng-model="task.startDate"/>
+                    <md-datepicker ng-model="task.startDate"/>
                 </div>
-                    <div flex="50">
+                <div flex="20"></div>
+                    <div flex="40">
                         <h6>End Date</h6>
                         <md-datepicker ng-model="task.endDate"/> </div>
             </div>

@@ -20,7 +20,8 @@
 <md-content layout="row" flex>
     
     <div flex="20"></div>
-    <div layout="vertical" flex="60" layout-align="start center">
+    
+    <div layout="vertical" flex="60" layout-align="start center" layout-fill>
         <md-list ng-show="currentProject" flex>
             
             <md-list-item ng-repeat="task in currentProject.tasks" flex>

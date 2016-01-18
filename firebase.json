@@ -1,0 +1,9 @@
+{
+  "firebase": "registration77",
+  "public": "IdeaSharingApp",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
+}

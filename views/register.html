@@ -1,0 +1,26 @@
+<form>
+    <hgroup>
+        <h1>
+            Please Login
+        </h1>
+    
+    </hgroup>
+        <md-input-container>
+            <label>First Name</label>
+            <input type="text" ng-model="user.firstname" ng-required="true">
+        </md-input-container> 
+        <md-input-container>
+            <label>Last Name</label>
+            <input type="text" ng-model="user.lastname" ng-required="true">
+        </md-input-container> <md-input-container>
+            <label>Email</label>
+            <input type="email" ng-model="user.email" ng-required="true">
+        </md-input-container> 
+        <md-input-container>
+            <label>Password</label>
+            <input type="password" ng-model="user.password" ng-required="true">
+        </md-input-container>
+        <br>
+        <md-button class="md-raised md-primary" ng-click="register()">Login!!!</md-button>
+    
+</form>

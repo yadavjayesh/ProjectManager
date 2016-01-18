@@ -1,0 +1,59 @@
+<md-fab-speed-dial class="md-fab-bottom-right md-fling" md-direction="up" md-open="false">
+    <md-fab-trigger>
+        <md-button aria-label="menu" class="md-fab md-warn">
+            <ng-md-icon icon="menu"></md-icon>
+        </md-button>
+    </md-fab-trigger>
+    <md-fab-actions>
+        <md-button class="md-fab md-raised md-mini" aria-label="Add" ng-click="showAdd($event)">
+            <ng-md-icon icon="add"></ng-md-icon>
+        </md-button>
+        <md-button class="md-fab md-raised md-mini" aria-label="Add" ng-click="showAddProject($event)">
+            <ng-md-icon icon="description"></ng-md-icon>
+        </md-button>
+    </md-fab-actions>
+</md-fab-speed-dial>
+
+
+
+
+<md-content layout="row" flex>
+    
+    <div flex="20"></div>
+    <div layout="column" flex="60" layout-align="start center">
+        <md-list ng-show="currentProject" flex>
+            
+            <md-list-item ng-repeat="task in currentProject.tasks" flex>
+                <md-card flex>
+                    <div layout-gt-sm="row">
+                        <md-card-title>
+
+                            <md-card-media><ng-md-icon icon="assignment"/></md-card-media>
+                            
+                            <md-card-title-text>
+                                <div layout="column">
+                                    <span class="md-headline">{{ task.taskName }}</span>
+                                    <span class="md-subhead" layout-align="start start"> Created By : {{ task.taskCreater.firstName }}</span>
+                                </div>
+                            </md-card-title-text>
+
+                        </md-card-title>
+                        <div layout-t-sm="column">
+                            <md-card-content layout="start">
+                               <span flex> {{ task.taskDetail }} </span>
+
+                            </md-card-content>
+
+                            <md-card-actions layout="row" layout="start center">
+                               <span flex layout-align-gt-sm="start end" flex> Start From: {{ task.taskStartDate }} </span>
+                               <span flex layout-align-gt-sm="end end" flex> To: {{ task.taskEndDate }} </span>
+                            </md-card-actions>
+                        </div>
+                    </div>
+                </md-card>
+            </md-list-item>
+        </md-list>
+    </div>
+    <div flex="20"></div>
+    
+</md-content>

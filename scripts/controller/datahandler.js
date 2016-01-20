@@ -1,10 +1,11 @@
-myApp.controller('DataController',['$scope', 'projectHandler', '$rootScope','$mdDialog', function($scope, projectHandler, $rootScope, $mdDialog){
+myApp.controller('DataController',['$scope', 'projectHandler', '$rootScope','$mdDialog','Authorization','$window', function($scope, projectHandler, $rootScope, $mdDialog, Authorization,$window){
     
-    projectHandler.getProjectUser($rootScope.currentUser);
+    
+    
     $scope.task = '';
     $scope.storeProject = function(){
         //projectHandler.bindProject();
-        projectHandler.createNewProject($rootScope.currentUser,$scope.project);
+        projectHandler.createNewProject($rootScope.currentUser,$scope.project.projectName);
         projectHandler.getProjectUser($rootScope.currentUser);
         
         
@@ -40,6 +41,37 @@ myApp.controller('DataController',['$scope', 'projectHandler', '$rootScope','$md
             
         }
     
+    };
+    
+    $scope.showAddProject = function(ev){
+        $mdDialog.show({
+            controller: TaskControllerProj,
+            templateUrl: 'views/addproject.html' ,
+            targetEvent: ev,
+            scope: $scope,
+            preserveScope: true
+            
+        });
+        
+        function TaskControllerProj($mdDialog){
+            
+            //$rootScope.currentProject.task = $scope.task;
+            $scope.closeDialog = function() {
+                $mdDialog.hide();
+            };
+            
+            $scope.saveProject = function(){
+                 
+                 projectHandler.createNewProject($rootScope.currentUser,$scope.newProject.projectName);
+                 $mdDialog.hide();
+            }
+            
+        }
+    
+    };
+    
+    $scope.openGantt = function(){
+      $window.location.href = "/gantt.html";  
     };
 }]);
 

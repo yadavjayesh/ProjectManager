@@ -39,7 +39,7 @@ myApp.factory('projectHandler',['$rootScope', '$firebaseAuth', '$firebaseObject'
                                        
                                        getProjectUser: function(user){
                                            
-                                           var connRef = new Firebase(DATABASE_URL+'users/'+$rootScope.currentUser.$id+'/projects/');
+                                           var connRef = new Firebase(DATABASE_URL+'users/'+user.$id+'/projects/');
                                            var connArr = $firebaseArray(connRef);
                                            
                                            connArr.$loaded(function(dataArray){

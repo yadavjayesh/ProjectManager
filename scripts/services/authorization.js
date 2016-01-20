@@ -1,4 +1,4 @@
-myApp.factory('Authorization', [ '$rootScope', '$firebaseAuth', '$firebaseObject', 'DATABASE_URL', '$location', function($rootScope, $firebaseAuth, $firebaseObject, DATABASE_URL, $location){
+myApp.factory('Authorization', [ '$rootScope', '$firebaseAuth', '$firebaseObject', 'DATABASE_URL', '$location', 'projectHandler', function($rootScope, $firebaseAuth, $firebaseObject, DATABASE_URL, $location, projectHandler){
     
     var firebaseAuthRef = new Firebase(DATABASE_URL);
     var firebaseAuth = $firebaseAuth(firebaseAuthRef);
@@ -8,7 +8,8 @@ myApp.factory('Authorization', [ '$rootScope', '$firebaseAuth', '$firebaseObject
           var userRef = new Firebase(DATABASE_URL + 'users/' + authUser.uid);
             var userObj = $firebaseObject(userRef);
             $rootScope.currentUser = userObj;
-            
+            projectHandler.getProjectUser($rootScope.currentUser);
+            $location.path("/MainPage");
         } else{
             $rootScope.currentUser = '';
         }
@@ -52,6 +53,8 @@ myApp.factory('Authorization', [ '$rootScope', '$firebaseAuth', '$firebaseObject
         
         logout: function(){
             firebaseAuth.$unauth();
+            $rootScope.currentUser = '';
+            $rootScope.currentProject = '';
             $location.path("/login");
         }
     };//myObject

@@ -1,14 +1,4 @@
-var myApp = angular.module("mainApp", [ 'ngRoute','ngMaterial', 'firebase','ngMdIcons', 'gantt',
-                                        'gantt.sortable',
-                                        'gantt.movable',
-                                        'gantt.drawtask',
-                                        'gantt.tooltips',
-                                        'gantt.bounds',
-                                        'gantt.progress',
-                                        'gantt.table',
-                                        'gantt.tree',
-                                        'gantt.groups',
-                                        'gantt.resizeSensor'
+var myApp = angular.module("mainApp", [ 'ngRoute','ngMaterial', 'firebase','ngMdIcons'
                                       ]);
 
 myApp.constant('DATABASE_URL','https://registration77.firebaseIO.com/');
@@ -52,7 +42,7 @@ myApp.controller('MainController',['$scope','Authorization', '$mdSidenav', '$loc
     };
     
     $scope.sidebarNav = function(item){
-        console.log(item.method);
+        console.log(item);
         if(item.link){
             $location.url(item.link);
         }
@@ -61,6 +51,8 @@ myApp.controller('MainController',['$scope','Authorization', '$mdSidenav', '$loc
            
         }
     };
+    
+    
     
     $scope.getTaskProject = function(proj){
         projectHandler.getTaskProject(proj);
@@ -100,9 +92,5 @@ myApp.controller('MainController',['$scope','Authorization', '$mdSidenav', '$loc
                         
 }]);
 
-myApp.controller('Ctrl', ['$scope', function ($scope) {
-    $scope.data = [
-        { name:"row1", tasks:[{name:"task1", from:'1/1/2016', to:'2/1/2016'}]        }
-    ];
-}]);
+
 

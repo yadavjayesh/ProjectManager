@@ -71,7 +71,7 @@ myApp.controller('DataController',['$scope', 'projectHandler', '$rootScope','$md
     };
     
     $scope.openGantt = function(){
-      $window.location.href = "/gantt.html";  
+      $window.location.href = "gantt.html?id:"+$rootScope.currentProject.id;  
     };
 }]);
 

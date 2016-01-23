@@ -1,0 +1,43 @@
+<md-dialog aria-label="Task Form" flex="20"> 
+    <div layout="column">
+        <md-dialog-content>
+            <form name="taskForm">
+                <div layout-gt-sm="row" flex>
+                    <md-input-container>
+                        <label>Task Name</label>
+                        <input type="text" ng-model="subtask.name"/>
+                    </md-input-container>
+                    <md-input-container>
+                        <label>Task Details</label>
+                        <textarea ng-model="subtask.detail"/>
+                    </md-input-container>
+                </div>
+
+                <div layout-gt-sm="row">
+                    <div layout="column">
+                        <md-input-container>
+                            <label>Start Date</label>
+                            <input type="date" ng-model="subtask.startDate"/>
+                        </md-input-container>
+    <!--                    <md-datepicker ng-model="subtask.startDate"/>-->
+
+                    </div>
+                    <div layout="column">
+                        <md-input-container>
+                            <label>End Date</label>
+                            <input type="date" ng-model="subtask.endDate"/>
+                        </md-input-container>
+                    </div>    
+
+                </div>
+
+            </form>
+        </md-dialog-content>
+        <md-dialog-actions>
+            <span flex></span> 
+            <md-button ng-click="closeDialog()"> Cancel </md-button> 
+            <md-button ng-click="saveTask()" class="md-primary"> Save </md-button> 
+        </md-dialog-actions>
+
+    </div>
+</md-dialog>

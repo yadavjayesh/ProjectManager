@@ -12,6 +12,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-messages.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-route.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
@@ -49,7 +50,26 @@
         <script src="scripts/services/projecthandler.js"></script>
 
         
-        
+        <style>
+            .error-messages {
+              background:maroon;
+              color:white;
+              padding:5px;
+              border-radius:5px;
+              margin-top:15px;
+              position:relative;
+            }
+            .error-messages.ng-active:after {
+              position:absolute;
+              top:-10px;
+              content:"";
+              left:20px;
+              border-style:solid;
+              border-color:transparent transparent maroon;
+              border-width:5px;
+            }
+            
+        </style>
         
         
        

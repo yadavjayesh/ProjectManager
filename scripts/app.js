@@ -1,4 +1,4 @@
-var myApp = angular.module("mainApp", [ 'ngRoute','ngMaterial', 'firebase','ngMdIcons'
+var myApp = angular.module("mainApp", [ 'ngRoute','ngMaterial', 'firebase','ngMdIcons', 'ngMessages'
                                       ]);
 
 myApp.constant('DATABASE_URL','https://registration77.firebaseIO.com/');

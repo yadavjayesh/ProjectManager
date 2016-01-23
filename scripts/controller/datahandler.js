@@ -73,5 +73,33 @@ myApp.controller('DataController',['$scope', 'projectHandler', '$rootScope','$md
     $scope.openGantt = function(){
       $window.location.href = "gantt.html?id:"+$rootScope.currentProject.id;  
     };
+    
+    $scope.ShowSubTask = function(ev,task){
+        $scope.task = task;
+        $mdDialog.show({
+            controller: TaskControllerSubTask,
+            templateUrl: 'views/addsubtask.html' ,
+            targetEvent: ev,
+            scope: $scope,
+            preserveScope: true
+            
+        });
+        
+         function TaskControllerSubTask($mdDialog){
+           
+            //$rootScope.currentProject.task = $scope.task;
+            $scope.closeDialog = function() {
+                $mdDialog.hide();
+            };
+            
+            $scope.saveTask = function(){
+            //     console.log(task);
+                 projectHandler.saveSubTask($scope.task.taskId,$scope.subtask);
+                 $mdDialog.hide();
+            }
+            
+        }
+                       
+    };
 }]);
 

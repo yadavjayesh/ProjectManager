@@ -78,7 +78,17 @@ myApp.factory('projectHandler',['$rootScope', '$firebaseAuth', '$firebaseObject'
                                         //   connRef.$save();
                                        },
                                        
-                                       getTaskProject(project){
+                                       saveSubTask: function(task,subTask){
+                                           var ref = (new Firebase(DATABASE_URL+'projects/tasks/'+task)).push();
+                                           ref.set({
+                                               taskName:subTask.name,
+                                               taskDetail:subTask.detail,
+                                               taskStartDate: (subTask.startDate.getMonth()+1 + '/' + subTask.startDate.getDate() + '/' + subTask.startDate.getFullYear()),
+                                               taskEndDate: (subTask.endDate.getMonth()+1 + '/' + subTask.endDate.getDate() + '/' + subTask.endDate.getFullYear()),
+                                               taskCreater: { id:$rootScope.currentUser.$id, firstName: $rootScope.currentUser.firstname }
+                                           });
+                                       },
+                                       getTaskProject: function(project){
                                             var connRef = new Firebase(DATABASE_URL+'projects/'+project.projectID);
                                             var proRef = $firebaseObject(connRef);
                                             proRef.$loaded(function(proArray){

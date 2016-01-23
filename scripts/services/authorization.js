@@ -21,7 +21,7 @@ myApp.factory('Authorization', [ '$rootScope', '$firebaseAuth', '$firebaseObject
                 email: user.email,
                 password: user.password
             }).then(function(authData){
-                $rootScope.success="Yes";
+                $rootScope.success="";
                 $rootScope.user = authData;
                 $location.path('/MainPage');
             }).catch(function(error){
@@ -43,8 +43,11 @@ myApp.factory('Authorization', [ '$rootScope', '$firebaseAuth', '$firebaseObject
                     date: Firebase.ServerValue.TIMESTAMP
                    
                 });//set
-                 $location.path('/login');
-            });//promise
+                $rootScope.success = "Registered";
+                $location.path('/login');
+                });
+                 
+           
         },//register
         
         requireAuth : function(){
@@ -55,6 +58,7 @@ myApp.factory('Authorization', [ '$rootScope', '$firebaseAuth', '$firebaseObject
             firebaseAuth.$unauth();
             $rootScope.currentUser = '';
             $rootScope.currentProject = '';
+            $rootScope.success = 'Logged Out!!!';
             $location.path("/login");
         }
     };//myObject

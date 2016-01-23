@@ -63,9 +63,10 @@ myApp.factory('projectHandler',['$rootScope', '$firebaseAuth', '$firebaseObject'
                                            
                                            var connRef = new Firebase(DATABASE_URL+'projects/'+project.id+'/tasks');
                                            var newRef = connRef.push();
-                                        
+                                           var obj = $firebaseObject(newRef);
                                         
                                            newRef.set({
+                                                        taskId: obj.$id,
                                                         taskName:project.task.name,
                                                         taskDetail:project.task.detail,
                                                         taskStartDate: (project.task.startDate.getMonth()+1 + '/' + project.task.startDate.getDate() + '/' + project.task.startDate.getFullYear()),
@@ -90,6 +91,18 @@ myApp.factory('projectHandler',['$rootScope', '$firebaseAuth', '$firebaseObject'
                                             });
                                            
                                        },
+                                       
+                                       saveSubTask: function(task,subTask){
+                                           var ref = ((new Firebase(DATABASE_URL+'projects/'+$rootScope.currentProject.id+'/tasks/'+task)).child('subtasks')).push();
+                                           ref.set({
+                                               taskName:subTask.name,
+                                               taskDetail:subTask.detail,
+                                               taskStartDate: (subTask.startDate.getMonth()+1 + '/' + subTask.startDate.getDate() + '/' + subTask.startDate.getFullYear()),
+                                               taskEndDate: (subTask.endDate.getMonth()+1 + '/' + subTask.endDate.getDate() + '/' + subTask.endDate.getFullYear()),
+                                               taskCreater: { id:$rootScope.currentUser.$id, firstName: $rootScope.currentUser.firstname }
+                                           });
+                                       },
+                                       
                                        
                                        getProjectTaskData: function(){
                                            var project = $rootScope.currentProject;

@@ -1,0 +1,19 @@
+<md-dialog aria-label="Task Form" flex="20"> 
+    <div layout="column">
+         <md-dialog-content>
+             <form name="projForm">
+                 <div layout-gt-sm="row" flex>
+                        <md-input-container>
+                            <label>Project Name</label>
+                            <input type="text" ng-model="newProject.projectName"/>
+                        </md-input-container>
+                 </div>
+            </form>
+        </md-dialog-content>
+        <md-dialog-actions>
+            <span flex></span> 
+            <md-button ng-click="closeDialog()"> Cancel </md-button> 
+            <md-button ng-click="saveProject()" class="md-primary"> Save </md-button> 
+        </md-dialog-actions>
+    </div>
+</md-dialog>

@@ -1,4 +1,4 @@
-<form name='register'>
+<form name='registerForm'>
     <hgroup>
         <h1>
             Please Register
@@ -8,23 +8,23 @@
         <md-input-container>
             <label>First Name</label>
             <input type="text" name="fname" ng-model="user.firstname" ng-required="true">
-             <span class="error-messages" ng-show="register.fname.$invalid&&!register.fname.$pristine">Please enter first name</span>
+             <span class="error-messages" ng-show="registerForm.fname.$invalid&&!registerForm.fname.$pristine">Please enter first name</span>
         </md-input-container> 
         <md-input-container>
             <label>Last Name</label>
             <input type="text" name="lastname" ng-model="user.lastname" ng-required="true">
-            <span class="error-messages" ng-show="register.lastname.$invalid&&!register.lastname.$pristine">Please enter last name</span>
+            <span class="error-messages" ng-show="registerForm.lastname.$invalid&&!registerForm.lastname.$pristine">Please enter last name</span>
         </md-input-container> <md-input-container>
             <label>Email</label>
             <input type="email" name="email" ng-model="user.email" ng-required="true">
-            <span class="error-messages" ng-show="register.email.$invalid&&!register.email.$pristine">Please enter a valid email</span>
+            <span class="error-messages" ng-show="registerForm.email.$invalid&&!registerForm.email.$pristine">Please enter a valid email</span>
         </md-input-container> 
         <md-input-container>
             <label>Password</label>
             <input type="password" name="password" ng-model="user.password" ng-required="true">
-            <span class="error-messages" ng-show="register.password.$invalid&&!register.password.$pristine">Password is required</span>
+            <span class="error-messages" ng-show="registerForm.password.$invalid&&!registerForm.password.$pristine">Password is required</span>
         </md-input-container>
         <br>
-        <md-button ng-disabled="register.$invalid" class="md-raised md-primary" ng-click="register()">Register!!!</md-button>
+        <md-button ng-disabled="registerForm.$invalid" class="md-raised md-primary" ng-click="registerNewUser()">Register</md-button>
     
 </form>

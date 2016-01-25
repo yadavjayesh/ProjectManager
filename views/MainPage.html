@@ -1,4 +1,4 @@
-<md-fab-speed-dial class="md-fab-bottom-right md-fling" md-direction="up" md-open="false">
+<md-fab-speed-dial class="md-fab-bottom-right md-fling" md-direction="up" md-open="isOpen">
     <md-fab-trigger>
         <md-button aria-label="menu" class="md-fab md-warn">
             <ng-md-icon icon="menu"></md-icon>
@@ -20,11 +20,18 @@
 
 
 
-<md-content layout="row" flex>
+<md-content layout-padding layout-margin flex>
     
     <div flex="20"></div>
     
     <div layout="vertical" flex="60" layout-align="start center" layout-fill>
+        <md-list ng-show="!currentProject" flex>
+            <md-list-item>
+                <md-card-content>
+                    <span class="error-messages" layout-align="start start"> Please select a project </span>
+                </md-card-content>
+            </md-list-item>
+        </md-list>
         <md-list ng-show="currentProject" flex>
             
             <md-list-item ng-repeat="task in currentProject.tasks" flex>

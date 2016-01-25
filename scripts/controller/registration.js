@@ -4,7 +4,8 @@ myApp.controller("RegistrationController",[ '$scope', 'Authorization', function(
         Authorization.login($scope.user);
     };
     
-    $scope.register = function(){
+    $scope.registerNewUser = function(){
+        console.log($scope.user);
         Authorization.register($scope.user);
     };
     

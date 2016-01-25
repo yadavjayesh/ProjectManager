@@ -84,7 +84,7 @@ myApp.factory('projectHandler',['$rootScope', '$firebaseAuth', '$firebaseObject'
                                             var proRef = $firebaseObject(connRef);
                                             proRef.$loaded(function(proArray){
                                                 $rootScope.currentProject = proArray;
-                                                 alert($rootScope.currentProject);
+                                                
                                                 
                                             }).catch(function(error){
                                                 console.log(error.message);

@@ -1,6 +1,6 @@
 myApp.controller('DataController',['$scope', 'projectHandler', '$rootScope','$mdDialog','Authorization','$window', function($scope, projectHandler, $rootScope, $mdDialog, Authorization,$window){
     
-    
+    $scope.isOpen = false;
     
     $scope.task = '';
     $scope.storeProject = function(){

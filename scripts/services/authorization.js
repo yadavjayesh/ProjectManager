@@ -30,6 +30,7 @@ myApp.factory('Authorization', [ '$rootScope', '$firebaseAuth', '$firebaseObject
         },//login
 
         register : function(user){
+            
             firebaseAuth.$createUser({
                 email: user.email,
                 password: user.password

@@ -63,13 +63,13 @@ myApp.controller('MainController',['$scope','Authorization', '$mdSidenav', '$loc
             name: 'Login',
             icon: 'login',
             l_hid: "!currentUser",
-            link: '#/login'
+            link: '/login'
         },
         register : {
             name: 'Register',
             icon: 'person_add',
             l_hid: "!currentUser",
-            link: '#/register'
+            link: '/register'
         },
         logout:{
             name: 'Logout',

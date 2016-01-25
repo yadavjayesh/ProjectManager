@@ -18,15 +18,18 @@ myApp.controller('DataController',['$scope', 'projectHandler', '$rootScope','$md
     
     
     $scope.showAdd = function(ev){
-        $mdDialog.show({
-            controller: TaskController,
-            templateUrl: 'views/addtask.html' ,
-            targetEvent: ev,
-            scope: $scope,
-            preserveScope: true
-            
-        });
-        
+        if(!$rootScope.currentProject){
+            alert("Please select a project");
+        }else{
+            $mdDialog.show({
+                controller: TaskController,
+                templateUrl: 'views/addtask.html' ,
+                targetEvent: ev,
+                scope: $scope,
+                preserveScope: true
+
+            });
+        }
         function TaskController($mdDialog){
             
             //$rootScope.currentProject.task = $scope.task;
@@ -71,7 +74,11 @@ myApp.controller('DataController',['$scope', 'projectHandler', '$rootScope','$md
     };
     
     $scope.openGantt = function(){
-      $window.location.href = "gantt.html?id:"+$rootScope.currentProject.id;  
+        if(!$rootScope.currentProject){
+            alert("Please select a project");
+        }else{
+            $window.location.href = "gantt.html?id:"+$rootScope.currentProject.id;  
+        }
     };
     
     $scope.ShowSubTask = function(ev,task){

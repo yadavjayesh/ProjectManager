@@ -20,11 +20,11 @@
 
 
 
-<md-content layout-padding layout-margin flex>
+<md-content layout-padding layout-margin layout-fill>
     
     <div flex="20"></div>
     
-    <div layout="vertical" flex="60" layout-align="start center" layout-fill>
+    <div layout="vertical" flex="60"  layout-fill>
         <md-list ng-show="!currentProject" flex>
             <md-list-item>
                 <md-card-content>
@@ -32,7 +32,7 @@
                 </md-card-content>
             </md-list-item>
         </md-list>
-        <md-list ng-show="currentProject" flex>
+        <md-list ng-show="currentProject" flex layout-align="end end">
             
             <md-list-item ng-repeat="task in currentProject.tasks" flex>
                 <md-card flex>
